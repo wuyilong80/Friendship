@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51F340B4A22660D13C9297BC /* Pods_Friendlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7873BBEBA6ED02464C911A3F /* Pods_Friendlist.framework */; };
 		CB5CEADC2944749900B38BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5CEADB2944749900B38BA6 /* AppDelegate.m */; };
 		CB5CEADF2944749900B38BA6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5CEADE2944749900B38BA6 /* SceneDelegate.m */; };
 		CB5CEAE22944749900B38BA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5CEAE12944749900B38BA6 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7873BBEBA6ED02464C911A3F /* Pods_Friendlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Friendlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A69D949D3021D4242FCFBA9C /* Pods-Friendlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friendlist.release.xcconfig"; path = "Target Support Files/Pods-Friendlist/Pods-Friendlist.release.xcconfig"; sourceTree = "<group>"; };
 		CB5CEAD72944749900B38BA6 /* Friendlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5CEADA2944749900B38BA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB5CEADB2944749900B38BA6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -29,6 +32,7 @@
 		CB5CEAE92944749B00B38BA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB5CEAEB2944749B00B38BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB5CEAEC2944749B00B38BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FCE72F6B15259D6FED970759 /* Pods-Friendlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friendlist.debug.xcconfig"; path = "Target Support Files/Pods-Friendlist/Pods-Friendlist.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +40,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51F340B4A22660D13C9297BC /* Pods_Friendlist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		940F9E1B583CD53BA5A3D5D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7873BBEBA6ED02464C911A3F /* Pods_Friendlist.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CB5CEACE2944749900B38BA6 = {
 			isa = PBXGroup;
 			children = (
 				CB5CEAD92944749900B38BA6 /* Friendlist */,
 				CB5CEAD82944749900B38BA6 /* Products */,
+				FB81575267959F3D6FD21445 /* Pods */,
+				940F9E1B583CD53BA5A3D5D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +91,16 @@
 			path = Friendlist;
 			sourceTree = "<group>";
 		};
+		FB81575267959F3D6FD21445 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCE72F6B15259D6FED970759 /* Pods-Friendlist.debug.xcconfig */,
+				A69D949D3021D4242FCFBA9C /* Pods-Friendlist.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB5CEAF02944749B00B38BA6 /* Build configuration list for PBXNativeTarget "Friendlist" */;
 			buildPhases = (
+				23275937508690E4D2906623 /* [CP] Check Pods Manifest.lock */,
 				CB5CEAD32944749900B38BA6 /* Sources */,
 				CB5CEAD42944749900B38BA6 /* Frameworks */,
 				CB5CEAD52944749900B38BA6 /* Resources */,
+				FA8D3FBDE5E21C2F9183FAD2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -111,7 +138,7 @@
 				};
 			};
 			buildConfigurationList = CB5CEAD22944749900B38BA6 /* Build configuration list for PBXProject "Friendlist" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -140,6 +167,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23275937508690E4D2906623 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Friendlist-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA8D3FBDE5E21C2F9183FAD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Friendlist/Pods-Friendlist-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Friendlist/Pods-Friendlist-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Friendlist/Pods-Friendlist-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CB5CEAD32944749900B38BA6 /* Sources */ = {
@@ -287,6 +356,7 @@
 		};
 		CB5CEAF12944749B00B38BA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCE72F6B15259D6FED970759 /* Pods-Friendlist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +384,7 @@
 		};
 		CB5CEAF22944749B00B38BA6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A69D949D3021D4242FCFBA9C /* Pods-Friendlist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
