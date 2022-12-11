@@ -14,21 +14,25 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - JSONModel (1.8.0)
   - Masonry (1.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 4.0)
+  - JSONModel
   - Masonry
 
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - JSONModel
     - Masonry
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: 63ee0b416faa458956628209efb8197358879d81
+PODFILE CHECKSUM: edfce01e350a5c45868963f212b398ba6bf13a2a
 
 COCOAPODS: 1.11.3

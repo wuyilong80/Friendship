@@ -7,5 +7,6 @@ target 'Friendlist' do
 
   pod 'Masonry'
   pod 'AFNetworking', '~> 4.0' 
+  pod 'JSONModel'
 
 end

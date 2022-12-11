@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		51F340B4A22660D13C9297BC /* Pods_Friendlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7873BBEBA6ED02464C911A3F /* Pods_Friendlist.framework */; };
+		CB40FAAA2945B3AC00550460 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAA92945B3AC00550460 /* APIManager.m */; };
+		CB40FAAE2945BA9000550460 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAAD2945BA8F00550460 /* UserProfile.m */; };
+		CB40FAB12945BF5C00550460 /* GeneralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAB02945BF5C00550460 /* GeneralModel.m */; };
+		CB40FAB42945C13800550460 /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAB32945C13800550460 /* Friend.m */; };
 		CB5CEADC2944749900B38BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5CEADB2944749900B38BA6 /* AppDelegate.m */; };
 		CB5CEAE22944749900B38BA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5CEAE12944749900B38BA6 /* ViewController.m */; };
 		CB5CEAE52944749900B38BA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5CEAE32944749900B38BA6 /* Main.storyboard */; };
@@ -19,6 +23,14 @@
 /* Begin PBXFileReference section */
 		7873BBEBA6ED02464C911A3F /* Pods_Friendlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Friendlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69D949D3021D4242FCFBA9C /* Pods-Friendlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friendlist.release.xcconfig"; path = "Target Support Files/Pods-Friendlist/Pods-Friendlist.release.xcconfig"; sourceTree = "<group>"; };
+		CB40FAA82945B3AC00550460 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		CB40FAA92945B3AC00550460 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		CB40FAAC2945BA8F00550460 /* UserProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		CB40FAAD2945BA8F00550460 /* UserProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
+		CB40FAAF2945BF5C00550460 /* GeneralModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneralModel.h; sourceTree = "<group>"; };
+		CB40FAB02945BF5C00550460 /* GeneralModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneralModel.m; sourceTree = "<group>"; };
+		CB40FAB22945C13800550460 /* Friend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
+		CB40FAB32945C13800550460 /* Friend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
 		CB5CEAD72944749900B38BA6 /* Friendlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5CEADA2944749900B38BA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB5CEADB2944749900B38BA6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -52,6 +64,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB40FAA72945B38900550460 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				CB40FAA82945B3AC00550460 /* APIManager.h */,
+				CB40FAA92945B3AC00550460 /* APIManager.m */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		CB40FAAB2945BA6F00550460 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB40FAAC2945BA8F00550460 /* UserProfile.h */,
+				CB40FAAD2945BA8F00550460 /* UserProfile.m */,
+				CB40FAAF2945BF5C00550460 /* GeneralModel.h */,
+				CB40FAB02945BF5C00550460 /* GeneralModel.m */,
+				CB40FAB22945C13800550460 /* Friend.h */,
+				CB40FAB32945C13800550460 /* Friend.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CB5CEACE2944749900B38BA6 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +107,8 @@
 		CB5CEAD92944749900B38BA6 /* Friendlist */ = {
 			isa = PBXGroup;
 			children = (
+				CB40FAAB2945BA6F00550460 /* Model */,
+				CB40FAA72945B38900550460 /* APIManager */,
 				CB5CEADA2944749900B38BA6 /* AppDelegate.h */,
 				CB5CEADB2944749900B38BA6 /* AppDelegate.m */,
 				CB5CEAE02944749900B38BA6 /* ViewController.h */,
@@ -209,9 +245,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB40FAAA2945B3AC00550460 /* APIManager.m in Sources */,
+				CB40FAB42945C13800550460 /* Friend.m in Sources */,
 				CB5CEAE22944749900B38BA6 /* ViewController.m in Sources */,
+				CB40FAB12945BF5C00550460 /* GeneralModel.m in Sources */,
 				CB5CEADC2944749900B38BA6 /* AppDelegate.m in Sources */,
 				CB5CEAED2944749B00B38BA6 /* main.m in Sources */,
+				CB40FAAE2945BA9000550460 /* UserProfile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

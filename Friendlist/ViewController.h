@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIManager.h"
 
 @interface ViewController : UIViewController
 
