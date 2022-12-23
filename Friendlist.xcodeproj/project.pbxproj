@@ -7,20 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		218FC32A295559DB0074430C /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC329295559DB0074430C /* FriendListViewController.m */; };
+		218FC32D29555C7A0074430C /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC32C29555C7A0074430C /* SettingViewController.m */; };
+		218FC3312955796F0074430C /* FriendMemberInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC3302955796F0074430C /* FriendMemberInfoView.m */; };
+		218FC334295583E50074430C /* FriendEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC333295583E50074430C /* FriendEmptyView.m */; };
+		218FC33A2955B2090074430C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 218FC3392955B2090074430C /* Localizable.strings */; };
+		218FC33D2955B3E70074430C /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC33C2955B3E70074430C /* UIColor+Extension.m */; };
 		51F340B4A22660D13C9297BC /* Pods_Friendlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7873BBEBA6ED02464C911A3F /* Pods_Friendlist.framework */; };
 		CB40FAAA2945B3AC00550460 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAA92945B3AC00550460 /* APIManager.m */; };
 		CB40FAAE2945BA9000550460 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAAD2945BA8F00550460 /* UserProfile.m */; };
 		CB40FAB12945BF5C00550460 /* GeneralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAB02945BF5C00550460 /* GeneralModel.m */; };
 		CB40FAB42945C13800550460 /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAB32945C13800550460 /* Friend.m */; };
 		CB5CEADC2944749900B38BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5CEADB2944749900B38BA6 /* AppDelegate.m */; };
-		CB5CEAE22944749900B38BA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5CEAE12944749900B38BA6 /* ViewController.m */; };
-		CB5CEAE52944749900B38BA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5CEAE32944749900B38BA6 /* Main.storyboard */; };
 		CB5CEAE72944749B00B38BA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB5CEAE62944749B00B38BA6 /* Assets.xcassets */; };
 		CB5CEAEA2944749B00B38BA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5CEAE82944749B00B38BA6 /* LaunchScreen.storyboard */; };
 		CB5CEAED2944749B00B38BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5CEAEC2944749B00B38BA6 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		218FC328295559DB0074430C /* FriendListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
+		218FC329295559DB0074430C /* FriendListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
+		218FC32B29555C7A0074430C /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		218FC32C29555C7A0074430C /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		218FC32F2955796F0074430C /* FriendMemberInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendMemberInfoView.h; sourceTree = "<group>"; };
+		218FC3302955796F0074430C /* FriendMemberInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendMemberInfoView.m; sourceTree = "<group>"; };
+		218FC332295583E50074430C /* FriendEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendEmptyView.h; sourceTree = "<group>"; };
+		218FC333295583E50074430C /* FriendEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendEmptyView.m; sourceTree = "<group>"; };
+		218FC3392955B2090074430C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		218FC33B2955B3E70074430C /* UIColor+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		218FC33C2955B3E70074430C /* UIColor+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		7873BBEBA6ED02464C911A3F /* Pods_Friendlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Friendlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69D949D3021D4242FCFBA9C /* Pods-Friendlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friendlist.release.xcconfig"; path = "Target Support Files/Pods-Friendlist/Pods-Friendlist.release.xcconfig"; sourceTree = "<group>"; };
 		CB40FAA82945B3AC00550460 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
@@ -34,9 +49,6 @@
 		CB5CEAD72944749900B38BA6 /* Friendlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5CEADA2944749900B38BA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB5CEADB2944749900B38BA6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CB5CEAE02944749900B38BA6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CB5CEAE12944749900B38BA6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		CB5CEAE42944749900B38BA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB5CEAE62944749B00B38BA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB5CEAE92944749B00B38BA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB5CEAEB2944749B00B38BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +68,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		218FC326295559AE0074430C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				218FC328295559DB0074430C /* FriendListViewController.h */,
+				218FC329295559DB0074430C /* FriendListViewController.m */,
+				218FC32B29555C7A0074430C /* SettingViewController.h */,
+				218FC32C29555C7A0074430C /* SettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		218FC327295559BA0074430C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		218FC32E295579550074430C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				218FC32F2955796F0074430C /* FriendMemberInfoView.h */,
+				218FC3302955796F0074430C /* FriendMemberInfoView.m */,
+				218FC332295583E50074430C /* FriendEmptyView.h */,
+				218FC333295583E50074430C /* FriendEmptyView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		218FC3382955B1F10074430C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				218FC3392955B2090074430C /* Localizable.strings */,
+				218FC33B2955B3E70074430C /* UIColor+Extension.h */,
+				218FC33C2955B3E70074430C /* UIColor+Extension.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		940F9E1B583CD53BA5A3D5D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,13 +158,14 @@
 		CB5CEAD92944749900B38BA6 /* Friendlist */ = {
 			isa = PBXGroup;
 			children = (
-				CB40FAAB2945BA6F00550460 /* Model */,
-				CB40FAA72945B38900550460 /* APIManager */,
 				CB5CEADA2944749900B38BA6 /* AppDelegate.h */,
 				CB5CEADB2944749900B38BA6 /* AppDelegate.m */,
-				CB5CEAE02944749900B38BA6 /* ViewController.h */,
-				CB5CEAE12944749900B38BA6 /* ViewController.m */,
-				CB5CEAE32944749900B38BA6 /* Main.storyboard */,
+				218FC32E295579550074430C /* View */,
+				218FC327295559BA0074430C /* ViewModel */,
+				218FC326295559AE0074430C /* Controller */,
+				CB40FAAB2945BA6F00550460 /* Model */,
+				CB40FAA72945B38900550460 /* APIManager */,
+				218FC3382955B1F10074430C /* Config */,
 				CB5CEAE62944749B00B38BA6 /* Assets.xcassets */,
 				CB5CEAE82944749B00B38BA6 /* LaunchScreen.storyboard */,
 				CB5CEAEB2944749B00B38BA6 /* Info.plist */,
@@ -191,8 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB5CEAEA2944749B00B38BA6 /* LaunchScreen.storyboard in Resources */,
+				218FC33A2955B2090074430C /* Localizable.strings in Resources */,
 				CB5CEAE72944749B00B38BA6 /* Assets.xcassets in Resources */,
-				CB5CEAE52944749900B38BA6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,27 +297,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				218FC32A295559DB0074430C /* FriendListViewController.m in Sources */,
 				CB40FAAA2945B3AC00550460 /* APIManager.m in Sources */,
 				CB40FAB42945C13800550460 /* Friend.m in Sources */,
-				CB5CEAE22944749900B38BA6 /* ViewController.m in Sources */,
 				CB40FAB12945BF5C00550460 /* GeneralModel.m in Sources */,
+				218FC33D2955B3E70074430C /* UIColor+Extension.m in Sources */,
 				CB5CEADC2944749900B38BA6 /* AppDelegate.m in Sources */,
+				218FC3312955796F0074430C /* FriendMemberInfoView.m in Sources */,
+				218FC334295583E50074430C /* FriendEmptyView.m in Sources */,
 				CB5CEAED2944749B00B38BA6 /* main.m in Sources */,
 				CB40FAAE2945BA9000550460 /* UserProfile.m in Sources */,
+				218FC32D29555C7A0074430C /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CB5CEAE32944749900B38BA6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB5CEAE42944749900B38BA6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CB5CEAE82944749B00B38BA6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -400,7 +448,7 @@
 				INFOPLIST_FILE = Friendlist/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -428,7 +476,7 @@
 				INFOPLIST_FILE = Friendlist/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
