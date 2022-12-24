@@ -33,4 +33,12 @@
     return [UIColor colorWithRed:153.0/255.0 green:153.0/255.0 blue:153.0/255.0 alpha:1];
 }
 
++ (UIColor *)divideLineColor {
+    return [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:1];;
+}
+
++ (UIColor *)searchViewColor {
+    return [UIColor colorWithRed:241.0/255.0 green:241.0/255.0 blue:242.0/255.0 alpha:1];;
+}
+
 @end

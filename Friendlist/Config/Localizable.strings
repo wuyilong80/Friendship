@@ -3,3 +3,11 @@
 "FriendEmptyButton" = "加好友";
 "FriendEmptyNoticeDescription" = "幫助好友更快找到你？";
 "FriendEmptyNoticeButton" = "設定 KOKO ID";
+
+"FriendInfoIdSetting" = "設定 KOKO ID";
+"FriendInfoId" = "KOKO ID：%@";
+
+"FriendSearchPlaceholder" = "想轉一筆給誰呢？";
+
+"FirendListButtonTransfer" = "轉帳";
+"FirendListButtonInvite" = "邀請中";

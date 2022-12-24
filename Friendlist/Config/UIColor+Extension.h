@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)hotPinkColor;
 + (UIColor *)textMainColor;
 + (UIColor *)textSecondColor;
++ (UIColor *)divideLineColor;
++ (UIColor *)searchViewColor;
 
 @end
 

@@ -8,8 +8,9 @@
 #import "FriendListViewController.h"
 
 #import "FriendMemberInfoView.h"
-#import "FriendEmptyView.h"
+#import "FriendSearchView.h"
 #import "UIColor+Extension.h"
+#import "FriendListTableViewCell.h"
 
 @interface FriendListViewController () <UIGestureRecognizerDelegate, UITableViewDataSource>
 
@@ -18,11 +19,15 @@
 @property (nonatomic) FriendMemberInfoView *memberInfoView;
 @property (nonatomic) UIImageView *avatarImgView;
 @property (nonatomic) UIView *emptyView;
+@property (nonatomic) UIView *listView;
+@property (nonatomic) FriendSearchView *searchView;
 @property (nonatomic) UITableView *listTableView;
 
 @end
 
 @implementation FriendListViewController
+
+#pragma mark - Life Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +35,8 @@
     [self setupNavigation];
     [self setupUI];
 }
+
+#pragma mark - Layout
 
 - (void)setupNavigation {
     self.navigationItem.hidesBackButton = YES;
@@ -39,6 +46,12 @@
 - (void)setupUI {
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [self setupMemberContainerView];
+    [self setupEmptyView];
+    [self setupListView];
+}
+
+- (void)setupMemberContainerView {
     [self.view addSubview:self.memberContainerView];
     [self.memberContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.top.equalTo(@0);
@@ -48,12 +61,18 @@
     
     [self.memberContainerView addSubview:self.memberInfoView];
     [self.memberInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(self.memberContainerView).inset(15);
+        make.leading.trailing.equalTo(self.memberContainerView).inset(30);
         make.top.equalTo(self.navigationView.mas_bottom).offset(30);
         make.bottom.equalTo(self.memberContainerView).inset(50);
     }];
     
-    [self setupEmptyView];
+    UIView *divideView = [[UIView alloc] init];
+    [self.memberContainerView addSubview:divideView];
+    divideView.backgroundColor = [UIColor divideLineColor];
+    [divideView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.bottom.equalTo(@0);
+        make.height.equalTo(@1);
+    }];
 }
 
 - (void)setupNavigationView {
@@ -65,7 +84,6 @@
         make.leading.trailing.equalTo(@0);
         make.height.equalTo(@34);
     }];
-    self.memberContainerView.backgroundColor = [UIColor mainBackgroundColor];
     
     UIImageView *atmImgView = [[UIImageView alloc] init];
     [self.navigationView addSubview:atmImgView];
@@ -125,7 +143,6 @@
     titleLabel.textColor = [UIColor textMainColor];
     
     UILabel * contentLabel = [[UILabel alloc] init];
-    [self.emptyView addSubview:contentLabel];
     [self.emptyView addSubview:contentLabel];
     [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(titleLabel.mas_bottom).offset(8);
@@ -202,18 +219,45 @@
     [stackView addArrangedSubview:bottomButton];
 }
 
+- (void)setupListView {
+    [self.view addSubview:self.listView];
+    [self.listView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(@0);
+        make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        make.top.equalTo(self.memberContainerView.mas_bottom);
+    }];
+    
+    [self.listView addSubview:self.searchView];
+    [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.listView).offset(15);
+        make.leading.trailing.equalTo(self.listView).inset(30);
+    }];
+    
+    [self.listView addSubview:self.listTableView];
+    [self.listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.searchView.mas_bottom).offset(10);
+        make.leading.trailing.equalTo(self.listView).inset(20);
+        make.bottom.equalTo(@0);
+    }];
+}
+
+#pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return  0;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[UITableViewCell alloc] init];
+    FriendListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[FriendListTableViewCell reuseIdentifier]];
+    return cell;
 }
+
+#pragma mark - Accesscors
 
 - (UIView *)memberContainerView {
     if (!_memberContainerView) {
         _memberContainerView = [[UIView alloc] init];
-        _memberContainerView.backgroundColor = [UIColor whiteColor];
+        _memberContainerView.backgroundColor = [UIColor mainBackgroundColor];
     }
     return _memberContainerView;
 }
@@ -240,11 +284,28 @@
     return _emptyView;
 }
 
+- (UIView *)listView {
+    if (!_listView) {
+        _listView = [[UIView alloc] init];
+        _listView.backgroundColor = [UIColor whiteColor];
+    }
+    return _listView;
+}
+
+- (FriendSearchView *)searchView {
+    if (!_searchView) {
+        _searchView = [[FriendSearchView alloc] init];
+    }
+    return _searchView;
+}
+
 - (UITableView *)listTableView {
     if (!_listTableView) {
         _listTableView = [[UITableView alloc] init];
-        _listTableView.backgroundColor = [UIColor orangeColor];
-//        _listTableView.dataSource = self;
+        _listTableView.backgroundColor = [UIColor whiteColor];
+        _listTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _listTableView.dataSource = self;
+        [_listTableView registerClass:[FriendListTableViewCell class] forCellReuseIdentifier:[FriendListTableViewCell reuseIdentifier]];
     }
     return _listTableView;
 }
