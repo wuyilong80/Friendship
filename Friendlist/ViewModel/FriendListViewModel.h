@@ -10,6 +10,7 @@
 #import "APIManager.h"
 #import "MemberInfo.h"
 #import "Friend.h"
+#import "TabViewData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +32,7 @@ typedef enum FriendListMode {
 @property (nonatomic, weak) id <FriendViewModelDelegate> delegate;
 @property (strong, nonatomic) MemberInfo *memberInfo;
 @property (strong, nonatomic) NSMutableArray <Friend *>*friendDisplayList;
+@property (strong, nonatomic) NSMutableArray <TabViewData *>*tabDataList;
 
 - (void)loadData;
 - (void)filterList:(NSString *)text;

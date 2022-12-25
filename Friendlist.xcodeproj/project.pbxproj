@@ -13,6 +13,7 @@
 		211708A62956E84B006025DF /* FriendTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708A52956E84B006025DF /* FriendTabView.m */; };
 		211708A92956EB69006025DF /* FriendTabCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708A82956EB69006025DF /* FriendTabCollectionViewCell.m */; };
 		211708B42958090B006025DF /* FriendListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708B32958090B006025DF /* FriendListViewModel.m */; };
+		211708B729585C6E006025DF /* TabViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708B629585C6E006025DF /* TabViewData.m */; };
 		218FC32A295559DB0074430C /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC329295559DB0074430C /* FriendListViewController.m */; };
 		218FC32D29555C7A0074430C /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC32C29555C7A0074430C /* SettingViewController.m */; };
 		218FC3312955796F0074430C /* FriendMemberInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC3302955796F0074430C /* FriendMemberInfoView.m */; };
@@ -42,6 +43,8 @@
 		211708A82956EB69006025DF /* FriendTabCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTabCollectionViewCell.m; sourceTree = "<group>"; };
 		211708B22958090B006025DF /* FriendListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListViewModel.h; sourceTree = "<group>"; };
 		211708B32958090B006025DF /* FriendListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListViewModel.m; sourceTree = "<group>"; };
+		211708B529585C6E006025DF /* TabViewData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewData.h; sourceTree = "<group>"; };
+		211708B629585C6E006025DF /* TabViewData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewData.m; sourceTree = "<group>"; };
 		218FC328295559DB0074430C /* FriendListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
 		218FC329295559DB0074430C /* FriendListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
 		218FC32B29555C7A0074430C /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				CB40FAB02945BF5C00550460 /* GeneralModel.m */,
 				CB40FAB22945C13800550460 /* Friend.h */,
 				CB40FAB32945C13800550460 /* Friend.m */,
+				211708B529585C6E006025DF /* TabViewData.h */,
+				211708B629585C6E006025DF /* TabViewData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				211708B42958090B006025DF /* FriendListViewModel.m in Sources */,
+				211708B729585C6E006025DF /* TabViewData.m in Sources */,
 				211708A22956B9BE006025DF /* FriendListTableViewCell.m in Sources */,
 				218FC32A295559DB0074430C /* FriendListViewController.m in Sources */,
 				2117089E2956B2D4006025DF /* FriendSearchTextField.m in Sources */,

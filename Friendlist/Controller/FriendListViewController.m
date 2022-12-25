@@ -254,6 +254,10 @@
 
 - (void)updateUI {
     [self.memberInfoView updateInfo:self.viewModel.memberInfo];
+    [self.tabView updateTab:self.viewModel.tabDataList];
+    
+    self.listView.hidden = self.viewModel.friendDisplayList.count <= 0;
+    self.emptyView.hidden = self.viewModel.friendDisplayList.count > 0;
     [self.listTableView reloadData];
 }
 
@@ -262,7 +266,7 @@
 - (void) setupViewModel {
     self.viewModel = [[FriendListViewModel alloc] init];
     self.viewModel.delegate = self;
-    self.viewModel.listMode = FriendApiModeHaveInvite;
+    self.viewModel.listMode = FriendApiModeNoFriend;
     [self.viewModel loadData];
 }
 

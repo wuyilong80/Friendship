@@ -14,6 +14,7 @@
 @interface FriendTabCollectionViewCell()
 
 @property (nonatomic) UIView *selectedView;
+@property (nonatomic) UIStackView *badgeStackView;
 
 @end
 
@@ -28,10 +29,6 @@
 }
 
 - (void)setupUI {
-    UIStackView *badgeStackView = [[UIStackView alloc] init];
-    badgeStackView.axis = UILayoutConstraintAxisVertical;
-    badgeStackView.alignment = UIStackViewAlignmentFill;
-    badgeStackView.distribution = UIStackViewDistributionFillEqually;
     [self.badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.greaterThanOrEqualTo(@18);
     }];
@@ -43,8 +40,8 @@
     self.badgeView.layer.cornerRadius = 9;
     
     UIView *spaceView = [[UIView alloc] init];
-    [badgeStackView addArrangedSubview:self.badgeView];
-    [badgeStackView addArrangedSubview:spaceView];
+    [self.badgeStackView addArrangedSubview:self.badgeView];
+    [self.badgeStackView addArrangedSubview:spaceView];
 
     UIStackView *stackView = [[UIStackView alloc] init];
     stackView.axis = UILayoutConstraintAxisHorizontal;
@@ -52,10 +49,11 @@
     [self.contentView addSubview:stackView];
     [stackView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.contentView);
+        make.height.equalTo(@35);
     }];
 
     [stackView addArrangedSubview:self.tabNameLabel];
-    [stackView addArrangedSubview:badgeStackView];
+    [stackView addArrangedSubview:self.badgeStackView];
 
     [self.contentView addSubview:self.selectedView];
     [self.selectedView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,9 +63,17 @@
         make.centerX.equalTo(self.tabNameLabel.mas_centerX);
     }];
     self.selectedView.layer.cornerRadius = 2;
-    
-    self.tabNameLabel.text = @"好友";
-    self.badgeLabel.text = @"1";
+}
+
+- (void)updateData:(TabViewData *)tabData {
+    self.tabNameLabel.text = tabData.tabName;
+    self.badgeStackView.hidden = tabData.badgeCount <= 0;
+    if (tabData.badgeCount > 99) {
+        self.badgeLabel.text = @"99+";
+    } else {
+        self.badgeLabel.text = [NSString stringWithFormat:@"%ld", tabData.badgeCount];
+    }
+    self.selectedView.hidden = !tabData.isSelect;
 }
 
 + (NSString *)reuseIdentifier {
@@ -109,6 +115,16 @@
         _selectedView.backgroundColor = [UIColor hotPinkColor];
     }
     return _selectedView;
+}
+
+- (UIStackView *)badgeStackView {
+    if (!_badgeStackView) {
+        _badgeStackView = [[UIStackView alloc] init];
+        _badgeStackView.axis = UILayoutConstraintAxisVertical;
+        _badgeStackView.alignment = UIStackViewAlignmentFill;
+        _badgeStackView.distribution = UIStackViewDistributionFillEqually;
+    }
+    return _badgeStackView;
 }
 
 @end

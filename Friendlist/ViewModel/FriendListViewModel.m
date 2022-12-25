@@ -66,10 +66,46 @@
         }
         
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-            weakSelf.friendDisplayList = weakSelf.friendOriginList;
+            [weakSelf parseData];
             [weakSelf.delegate didLoadData];
         });
     });
+}
+
+- (void)parseData {
+    [self.friendDisplayList removeAllObjects];
+    
+    NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
+    NSInteger statusCount = 0;
+    for (Friend *origin in self.friendOriginList) {
+        // friend list
+        if (map[origin.fid] == nil) {
+            map[origin.fid] = origin;
+        } else {
+            Friend *lastData = map[origin.fid];
+            if ([origin getUpdateTimestamp] > [lastData getUpdateTimestamp]) {
+                map[origin.fid] = origin;
+            }
+        }
+        // tab view
+        if (origin.status == 2) {
+            statusCount += 1;
+        }
+    }
+    for (NSString *key in map) {
+        [self.friendDisplayList addObject:map[key]];
+    }
+    
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"fid" ascending:YES];
+    [self.friendDisplayList sortUsingDescriptors:[NSMutableArray arrayWithObjects:sort, nil]];
+    
+    [self.tabDataList removeAllObjects];
+    NSInteger chatCount = 0;
+    if (self.friendDisplayList.count > 0) {
+        chatCount = 100;
+    }
+    [self.tabDataList addObject:[[TabViewData alloc] initWithName:NSLocalizedString(@"FirendTabTitleFriend", nil) count:statusCount isSelect:YES]];
+    [self.tabDataList addObject:[[TabViewData alloc] initWithName:NSLocalizedString(@"FirendTabTitleChat", nil) count:chatCount isSelect:NO]];
 }
 
 - (void)filterList:(NSString *)text {
@@ -97,7 +133,13 @@
         _friendDisplayList = [[NSMutableArray alloc] init];
     }
     return _friendDisplayList;
+}
 
+- (NSMutableArray<TabViewData *> *)tabDataList {
+    if (!_tabDataList) {
+        _tabDataList = [[NSMutableArray alloc] init];
+    }
+    return _tabDataList;
 }
 
 @end

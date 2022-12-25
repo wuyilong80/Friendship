@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSString *fid;
 @property (copy, nonatomic) NSString *updateDate;
 
+- (double)getUpdateTimestamp;
+
 @end
 
 NS_ASSUME_NONNULL_END

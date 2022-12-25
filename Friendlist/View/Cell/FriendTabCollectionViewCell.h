@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TabViewData.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FriendTabCollectionViewCell : UICollectionViewCell
@@ -16,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) UIView *badgeView;
 
 + (NSString *)reuseIdentifier;
+
+- (void)updateData:(TabViewData *)tabData;
 
 @end
 

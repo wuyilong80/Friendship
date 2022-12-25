@@ -10,11 +10,14 @@
 #import <Masonry/Masonry.h>
 
 #import "UIColor+Extension.h"
+#import "TabViewData.h"
 #import "FriendTabCollectionViewCell.h"
 
 @interface FriendTabView() <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic) UICollectionView *collectionView;
+@property (nonatomic) NSMutableArray <TabViewData*>*tabDataList;
+@property (nonatomic) NSInteger currentSelectIndex;
 
 @end
 
@@ -35,25 +38,39 @@
     }];
 }
 
+- (void)updateTab:(NSMutableArray *)list {
+    self.tabDataList = list;
+    self.currentSelectIndex = 0;
+    [self.collectionView reloadData];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 2;
+    return self.tabDataList.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FriendTabCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FriendTabCollectionViewCell reuseIdentifier] forIndexPath:indexPath];
-    if (indexPath.row == 0) {
-        cell.badgeLabel.text = @"1";
-    } else {
-        cell.badgeLabel.text = @"99+";
-    }
-    
+    [cell updateData:self.tabDataList[indexPath.row]];
     return cell;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 20, 0, 20);
+    return UIEdgeInsetsMake(0, 30, 0, 30);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 36;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.tabDataList[self.currentSelectIndex].isSelect = NO;
+    self.tabDataList[indexPath.row].isSelect = YES;
+    self.currentSelectIndex = indexPath.row;
+    [collectionView reloadData];
 }
 
 #pragma mark - Accesscors
@@ -70,6 +87,13 @@
         [_collectionView registerClass:[FriendTabCollectionViewCell class] forCellWithReuseIdentifier:[FriendTabCollectionViewCell reuseIdentifier]];
     }
     return _collectionView;
+}
+
+- (NSMutableArray<TabViewData *> *)tabDataList {
+    if (!_tabDataList) {
+        _tabDataList = [[NSMutableArray alloc] init];
+    }
+    return _tabDataList;
 }
 
 @end

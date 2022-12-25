@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FriendTabView : UIView
 
+- (void)updateTab:(NSMutableArray*)list;
+
 @end
 
 NS_ASSUME_NONNULL_END
