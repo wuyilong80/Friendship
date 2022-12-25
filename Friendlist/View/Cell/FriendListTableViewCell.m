@@ -16,6 +16,7 @@
 @property (nonatomic) UIImageView *starImgView;
 @property (nonatomic) UIImageView *avatarImgView;
 @property (nonatomic) UILabel *nameLabel;
+@property (nonatomic) UIStackView *statusStackView;
 @property (nonatomic) UIButton *transferButton;
 @property (nonatomic) UIButton *inviteButton;
 @property (nonatomic) UIButton *moreButton;
@@ -50,36 +51,54 @@
         make.top.bottom.equalTo(self.contentView).inset(10);
     }];
     
-    UIStackView *stackView = [[UIStackView alloc] init];
-    stackView.axis = UILayoutConstraintAxisHorizontal;
-    stackView.alignment = UIStackViewAlignmentCenter;
-    stackView.spacing = 10;
-    [self addSubview:stackView];
-    [stackView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self addSubview:self.statusStackView];
+    [self.statusStackView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.trailing.equalTo(@0);
     }];
     
-    [stackView addArrangedSubview:self.transferButton];
+    [self.statusStackView addArrangedSubview:self.transferButton];
     [self.transferButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@47);
         make.height.equalTo(@24);
     }];
     
-    [stackView addArrangedSubview:self.inviteButton];
+    [self.statusStackView addArrangedSubview:self.inviteButton];
     [self.inviteButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@60);
         make.height.equalTo(@24);
     }];
     
-    [stackView addArrangedSubview:self.moreButton];
+    [self.statusStackView addArrangedSubview:self.moreButton];
         
     [self.contentView addSubview:self.nameLabel];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.avatarImgView.mas_trailing).offset(15);
         make.centerY.equalTo(@0);
-        make.trailing.equalTo(stackView.mas_leading).offset(-15);
+        make.trailing.equalTo(self.statusStackView.mas_leading).offset(-15);
     }];
-    self.nameLabel.text = @"adhaklgjhgjhgjhdasdasdhsajkldhaskhd";
+}
+
+- (void)updateData:(Friend *)friendData {
+    self.starImgView.hidden = ![friendData.isTop boolValue];
+    self.nameLabel.text = friendData.name;
+    
+    switch (friendData.status) {
+        case 1:
+            self.inviteButton.hidden = YES;
+            self.moreButton.hidden = NO;
+            self.statusStackView.spacing = 25;
+            break;
+        case 2:
+            self.inviteButton.hidden = NO;
+            self.moreButton.hidden = YES;
+            self.statusStackView.spacing = 10;
+            break;
+        default:
+            self.inviteButton.hidden = YES;
+            self.moreButton.hidden = NO;
+            self.statusStackView.spacing = 25;
+            break;
+    }
 }
 
 + (NSString *)reuseIdentifier {
@@ -111,6 +130,15 @@
         _nameLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightRegular];
     }
     return _nameLabel;
+}
+
+- (UIStackView *)statusStackView {
+    if (!_statusStackView) {
+        _statusStackView = [[UIStackView alloc] init];
+        _statusStackView.axis = UILayoutConstraintAxisHorizontal;
+        _statusStackView.alignment = UIStackViewAlignmentCenter;
+    }
+    return _statusStackView;
 }
 
 - (UIButton *)transferButton {

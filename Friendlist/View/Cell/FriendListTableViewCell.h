@@ -7,11 +7,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Friend.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FriendListTableViewCell : UITableViewCell
 
 + (NSString *)reuseIdentifier;
+- (void)updateData:(Friend *)friendData;
 
 @end
 

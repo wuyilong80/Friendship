@@ -13,7 +13,7 @@
 #import "FriendListTableViewCell.h"
 #import "FriendTabView.h"
 
-@interface FriendListViewController () <UIGestureRecognizerDelegate, UITableViewDataSource>
+@interface FriendListViewController () <UITableViewDataSource, FriendViewModelDelegate>
 
 @property (nonatomic) UIView *memberContainerView;
 @property (nonatomic) UIView *navigationView;
@@ -36,6 +36,7 @@
     
     [self setupNavigation];
     [self setupUI];
+    [self setupViewModel];
 }
 
 #pragma mark - Layout
@@ -251,15 +252,36 @@
     }];
 }
 
+- (void)updateUI {
+    [self.memberInfoView updateInfo:self.viewModel.memberInfo];
+    [self.listTableView reloadData];
+}
+
+#pragma mark - Data
+
+- (void) setupViewModel {
+    self.viewModel = [[FriendListViewModel alloc] init];
+    self.viewModel.delegate = self;
+    self.viewModel.listMode = FriendApiModeHaveInvite;
+    [self.viewModel loadData];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.viewModel.friendDisplayList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FriendListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[FriendListTableViewCell reuseIdentifier]];
+    [cell updateData:self.viewModel.friendDisplayList[indexPath.row]];
     return cell;
+}
+
+#pragma mark - FriendViewModelDelegate
+
+- (void)didLoadData {
+    [self updateUI];
 }
 
 #pragma mark - Accesscors

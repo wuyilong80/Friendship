@@ -6,7 +6,7 @@
 //
 
 #import "APIManager.h"
-#import "UserProfile.h"
+#import "MemberInfo.h"
 #import "GeneralModel.h"
 #import "Friend.h"
 
@@ -46,8 +46,8 @@ typedef void (^ failBlock)(id task,id errObj);
     }];
 }
 
-- (void)getUserProfileWithSuccess:(successResult)successResult fail:(failResult)failResult {
-    NSString *url = [NSString stringWithFormat: BASE_URL, USER_PROFILE];
+- (void)getMemberInfoWithSuccess:(successResult)successResult fail:(failResult)failResult {
+    NSString *url = [NSString stringWithFormat: BASE_URL, MEMBER_INFO];
     [self getApi:url success:^(id task, id result) {
         GeneralModel *model = [[GeneralModel alloc] initWithData:result error:nil];
         successResult(model);

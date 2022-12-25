@@ -1,5 +1,5 @@
 //
-//  UserProfile.h
+//  MemberInfo.h
 //  Friendlist
 //
 //  Created by yilong wu on 2022/12/11.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserProfile : JSONModel
+@interface MemberInfo : JSONModel
 
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *kokoid;

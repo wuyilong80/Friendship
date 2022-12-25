@@ -8,9 +8,13 @@
 #import <UIKit/UIKit.h>
 #import <Masonry/Masonry.h>
 
+#import "FriendListViewModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FriendListViewController : UIViewController
+
+@property (nonatomic) FriendListViewModel *viewModel;
 
 @end
 

@@ -12,6 +12,7 @@
 		211708A22956B9BE006025DF /* FriendListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708A12956B9BE006025DF /* FriendListTableViewCell.m */; };
 		211708A62956E84B006025DF /* FriendTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708A52956E84B006025DF /* FriendTabView.m */; };
 		211708A92956EB69006025DF /* FriendTabCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708A82956EB69006025DF /* FriendTabCollectionViewCell.m */; };
+		211708B42958090B006025DF /* FriendListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708B32958090B006025DF /* FriendListViewModel.m */; };
 		218FC32A295559DB0074430C /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC329295559DB0074430C /* FriendListViewController.m */; };
 		218FC32D29555C7A0074430C /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC32C29555C7A0074430C /* SettingViewController.m */; };
 		218FC3312955796F0074430C /* FriendMemberInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC3302955796F0074430C /* FriendMemberInfoView.m */; };
@@ -19,7 +20,7 @@
 		218FC33D2955B3E70074430C /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC33C2955B3E70074430C /* UIColor+Extension.m */; };
 		51F340B4A22660D13C9297BC /* Pods_Friendlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7873BBEBA6ED02464C911A3F /* Pods_Friendlist.framework */; };
 		CB40FAAA2945B3AC00550460 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAA92945B3AC00550460 /* APIManager.m */; };
-		CB40FAAE2945BA9000550460 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAAD2945BA8F00550460 /* UserProfile.m */; };
+		CB40FAAE2945BA9000550460 /* MemberInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAAD2945BA8F00550460 /* MemberInfo.m */; };
 		CB40FAB12945BF5C00550460 /* GeneralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAB02945BF5C00550460 /* GeneralModel.m */; };
 		CB40FAB42945C13800550460 /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = CB40FAB32945C13800550460 /* Friend.m */; };
 		CB5CEADC2944749900B38BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5CEADB2944749900B38BA6 /* AppDelegate.m */; };
@@ -39,6 +40,8 @@
 		211708A52956E84B006025DF /* FriendTabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTabView.m; sourceTree = "<group>"; };
 		211708A72956EB69006025DF /* FriendTabCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTabCollectionViewCell.h; sourceTree = "<group>"; };
 		211708A82956EB69006025DF /* FriendTabCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTabCollectionViewCell.m; sourceTree = "<group>"; };
+		211708B22958090B006025DF /* FriendListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListViewModel.h; sourceTree = "<group>"; };
+		211708B32958090B006025DF /* FriendListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListViewModel.m; sourceTree = "<group>"; };
 		218FC328295559DB0074430C /* FriendListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
 		218FC329295559DB0074430C /* FriendListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
 		218FC32B29555C7A0074430C /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -52,8 +55,8 @@
 		A69D949D3021D4242FCFBA9C /* Pods-Friendlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friendlist.release.xcconfig"; path = "Target Support Files/Pods-Friendlist/Pods-Friendlist.release.xcconfig"; sourceTree = "<group>"; };
 		CB40FAA82945B3AC00550460 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		CB40FAA92945B3AC00550460 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
-		CB40FAAC2945BA8F00550460 /* UserProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
-		CB40FAAD2945BA8F00550460 /* UserProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
+		CB40FAAC2945BA8F00550460 /* MemberInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberInfo.h; sourceTree = "<group>"; };
+		CB40FAAD2945BA8F00550460 /* MemberInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberInfo.m; sourceTree = "<group>"; };
 		CB40FAAF2945BF5C00550460 /* GeneralModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneralModel.h; sourceTree = "<group>"; };
 		CB40FAB02945BF5C00550460 /* GeneralModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneralModel.m; sourceTree = "<group>"; };
 		CB40FAB22945C13800550460 /* Friend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 		218FC327295559BA0074430C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				211708B22958090B006025DF /* FriendListViewModel.h */,
+				211708B32958090B006025DF /* FriendListViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -155,8 +160,8 @@
 		CB40FAAB2945BA6F00550460 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CB40FAAC2945BA8F00550460 /* UserProfile.h */,
-				CB40FAAD2945BA8F00550460 /* UserProfile.m */,
+				CB40FAAC2945BA8F00550460 /* MemberInfo.h */,
+				CB40FAAD2945BA8F00550460 /* MemberInfo.m */,
 				CB40FAAF2945BF5C00550460 /* GeneralModel.h */,
 				CB40FAB02945BF5C00550460 /* GeneralModel.m */,
 				CB40FAB22945C13800550460 /* Friend.h */,
@@ -325,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				211708B42958090B006025DF /* FriendListViewModel.m in Sources */,
 				211708A22956B9BE006025DF /* FriendListTableViewCell.m in Sources */,
 				218FC32A295559DB0074430C /* FriendListViewController.m in Sources */,
 				2117089E2956B2D4006025DF /* FriendSearchTextField.m in Sources */,
@@ -338,7 +344,7 @@
 				CB5CEAED2944749B00B38BA6 /* main.m in Sources */,
 				211708A92956EB69006025DF /* FriendTabCollectionViewCell.m in Sources */,
 				2117089B2956AB95006025DF /* FriendSearchView.m in Sources */,
-				CB40FAAE2945BA9000550460 /* UserProfile.m in Sources */,
+				CB40FAAE2945BA9000550460 /* MemberInfo.m in Sources */,
 				218FC32D29555C7A0074430C /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

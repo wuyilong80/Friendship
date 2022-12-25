@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #define BASE_URL @"https://dimanyen.github.io/%@"
 
-#define USER_PROFILE @"man.json"
-#define FRIEND_LIST @"friend%ld.json"
+#define MEMBER_INFO @"man.json"
+#define FRIEND_LIST @"friend%d.json"
 
 typedef enum FriendApiMode {
     FriendApiModeOne = 1,
@@ -31,7 +31,7 @@ typedef void (^ failResult)(NSInteger errorCode, NSString* errorMsg);
 
 + (APIManager*)shared;
 
-- (void)getUserProfileWithSuccess:(successResult)successResult fail:(failResult)failResult;
+- (void)getMemberInfoWithSuccess:(successResult)successResult fail:(failResult)failResult;
 
 - (void)getFriendListWithMode:(FriendApiMode)mode success:(successResult)successResult fail:(failResult)failResult;
 

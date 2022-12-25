@@ -10,7 +10,7 @@
 #import "FriendListViewController.h"
 
 #import "APIManager.h"
-#import "UserProfile.h"
+#import "MemberInfo.h"
 
 @interface SettingViewController ()
 
@@ -36,18 +36,6 @@
     
 //    self.navigationItem.hidesBackButton = YES;
 //    self.navigationItem.leftBarButtonItem = nil;
-
-    [[APIManager shared] getUserProfileWithSuccess:^(GeneralModel * _Nonnull model) {
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        for (NSDictionary *dic in model.response) {
-            UserProfile *userProfile = [[UserProfile alloc] initWithDictionary:dic error:nil];
-            [array addObject:userProfile];
-        }
-        NSLog(@"%@", array);
-    } fail:^(NSInteger errorCode, NSString * _Nonnull errorMsg) {
-        NSLog(@"%@", errorMsg);
-    }];
-    
     
     [self setupUI];
 }

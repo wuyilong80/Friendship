@@ -69,6 +69,14 @@
     self.redPointView.layer.cornerRadius = 5;
 }
 
+- (void)updateInfo:(MemberInfo *)info {
+    if (info != nil) {
+        self.memberNameLabel.text = info.name;
+        self.memberIdLabel.text = [NSString stringWithFormat:NSLocalizedString(@"FriendInfoId", nil), info.kokoid];
+        self.redPointView.hidden = info.kokoid.length > 0;
+    }
+}
+
 #pragma mark - Accesscors
 
 - (UIImageView *)memberAvatarImgView {
@@ -89,7 +97,6 @@
 - (UILabel *)memberIdLabel {
     if (!_memberIdLabel) {
         _memberIdLabel = [[UILabel alloc] init];
-        _memberIdLabel.text = @"紫晽";
         _memberIdLabel.textColor = [UIColor textMainColor];
         _memberIdLabel.font = [UIFont systemFontOfSize:17 weight:UIFontWeightMedium];
     }
