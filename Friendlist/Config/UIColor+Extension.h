@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)buttonGradientStartColor;
 + (UIColor *)buttonGradientEndColor;
 + (UIColor *)hotPinkColor;
++ (UIColor *)softPinkColor;
 + (UIColor *)textMainColor;
 + (UIColor *)textSecondColor;
 + (UIColor *)divideLineColor;

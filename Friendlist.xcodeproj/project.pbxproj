@@ -10,6 +10,8 @@
 		2117089B2956AB95006025DF /* FriendSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2117089A2956AB95006025DF /* FriendSearchView.m */; };
 		2117089E2956B2D4006025DF /* FriendSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2117089D2956B2D4006025DF /* FriendSearchTextField.m */; };
 		211708A22956B9BE006025DF /* FriendListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708A12956B9BE006025DF /* FriendListTableViewCell.m */; };
+		211708A62956E84B006025DF /* FriendTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708A52956E84B006025DF /* FriendTabView.m */; };
+		211708A92956EB69006025DF /* FriendTabCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211708A82956EB69006025DF /* FriendTabCollectionViewCell.m */; };
 		218FC32A295559DB0074430C /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC329295559DB0074430C /* FriendListViewController.m */; };
 		218FC32D29555C7A0074430C /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC32C29555C7A0074430C /* SettingViewController.m */; };
 		218FC3312955796F0074430C /* FriendMemberInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FC3302955796F0074430C /* FriendMemberInfoView.m */; };
@@ -33,6 +35,10 @@
 		2117089D2956B2D4006025DF /* FriendSearchTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendSearchTextField.m; sourceTree = "<group>"; };
 		211708A02956B9BE006025DF /* FriendListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListTableViewCell.h; sourceTree = "<group>"; };
 		211708A12956B9BE006025DF /* FriendListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListTableViewCell.m; sourceTree = "<group>"; };
+		211708A42956E84B006025DF /* FriendTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTabView.h; sourceTree = "<group>"; };
+		211708A52956E84B006025DF /* FriendTabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTabView.m; sourceTree = "<group>"; };
+		211708A72956EB69006025DF /* FriendTabCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTabCollectionViewCell.h; sourceTree = "<group>"; };
+		211708A82956EB69006025DF /* FriendTabCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTabCollectionViewCell.m; sourceTree = "<group>"; };
 		218FC328295559DB0074430C /* FriendListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
 		218FC329295559DB0074430C /* FriendListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
 		218FC32B29555C7A0074430C /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -79,6 +85,8 @@
 			children = (
 				211708A02956B9BE006025DF /* FriendListTableViewCell.h */,
 				211708A12956B9BE006025DF /* FriendListTableViewCell.m */,
+				211708A72956EB69006025DF /* FriendTabCollectionViewCell.h */,
+				211708A82956EB69006025DF /* FriendTabCollectionViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -111,6 +119,8 @@
 				2117089A2956AB95006025DF /* FriendSearchView.m */,
 				2117089C2956B2D4006025DF /* FriendSearchTextField.h */,
 				2117089D2956B2D4006025DF /* FriendSearchTextField.m */,
+				211708A42956E84B006025DF /* FriendTabView.h */,
+				211708A52956E84B006025DF /* FriendTabView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,10 +331,12 @@
 				CB40FAAA2945B3AC00550460 /* APIManager.m in Sources */,
 				CB40FAB42945C13800550460 /* Friend.m in Sources */,
 				CB40FAB12945BF5C00550460 /* GeneralModel.m in Sources */,
+				211708A62956E84B006025DF /* FriendTabView.m in Sources */,
 				218FC33D2955B3E70074430C /* UIColor+Extension.m in Sources */,
 				CB5CEADC2944749900B38BA6 /* AppDelegate.m in Sources */,
 				218FC3312955796F0074430C /* FriendMemberInfoView.m in Sources */,
 				CB5CEAED2944749B00B38BA6 /* main.m in Sources */,
+				211708A92956EB69006025DF /* FriendTabCollectionViewCell.m in Sources */,
 				2117089B2956AB95006025DF /* FriendSearchView.m in Sources */,
 				CB40FAAE2945BA9000550460 /* UserProfile.m in Sources */,
 				218FC32D29555C7A0074430C /* SettingViewController.m in Sources */,

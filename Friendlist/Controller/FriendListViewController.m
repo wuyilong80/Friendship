@@ -11,12 +11,14 @@
 #import "FriendSearchView.h"
 #import "UIColor+Extension.h"
 #import "FriendListTableViewCell.h"
+#import "FriendTabView.h"
 
 @interface FriendListViewController () <UIGestureRecognizerDelegate, UITableViewDataSource>
 
 @property (nonatomic) UIView *memberContainerView;
 @property (nonatomic) UIView *navigationView;
 @property (nonatomic) FriendMemberInfoView *memberInfoView;
+@property (nonatomic) FriendTabView *tabView;
 @property (nonatomic) UIImageView *avatarImgView;
 @property (nonatomic) UIView *emptyView;
 @property (nonatomic) UIView *listView;
@@ -60,14 +62,22 @@
     [self setupNavigationView];
     
     [self.memberContainerView addSubview:self.memberInfoView];
+    UIView *divideView = [[UIView alloc] init];
+    [self.memberContainerView addSubview:divideView];
+    [self.memberContainerView addSubview:self.tabView];
+    
     [self.memberInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.equalTo(self.memberContainerView).inset(30);
         make.top.equalTo(self.navigationView.mas_bottom).offset(30);
-        make.bottom.equalTo(self.memberContainerView).inset(50);
+        make.bottom.equalTo(self.tabView.mas_top).offset(-30);
     }];
     
-    UIView *divideView = [[UIView alloc] init];
-    [self.memberContainerView addSubview:divideView];
+    [self.tabView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(@0);
+        make.bottom.equalTo(divideView.mas_top);
+        make.height.equalTo(@35);
+    }];
+    
     divideView.backgroundColor = [UIColor divideLineColor];
     [divideView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.bottom.equalTo(@0);
@@ -274,6 +284,13 @@
         _memberInfoView = [[FriendMemberInfoView alloc] init];
     }
     return _memberInfoView;
+}
+
+- (FriendTabView *)tabView {
+    if (!_tabView) {
+        _tabView = [[FriendTabView alloc] init];
+    }
+    return _tabView;
 }
 
 - (UIView *)emptyView {

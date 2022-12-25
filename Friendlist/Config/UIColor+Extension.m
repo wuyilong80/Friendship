@@ -25,6 +25,10 @@
     return [UIColor colorWithRed:236.0/255.0 green:0.0/255.0 blue:140.0/255.0 alpha:1];
 }
 
++ (UIColor *)softPinkColor {
+    return [UIColor colorWithRed:249.0/255.0 green:178.0/255.0 blue:220.0/255.0 alpha:1];
+}
+
 + (UIColor *)textMainColor {
     return [UIColor colorWithRed:71.0/255.0 green:71.0/255.0 blue:17.0/255.0 alpha:1];
 }
