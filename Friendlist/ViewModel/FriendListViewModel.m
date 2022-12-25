@@ -66,19 +66,20 @@
         }
         
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-            [weakSelf parseData];
-            [weakSelf.delegate didLoadData];
+            [weakSelf parseData: self.friendOriginList];
+            [weakSelf setupTabData];
+            if (weakSelf.delegate) {
+                [weakSelf.delegate didLoadData];
+            }
         });
     });
 }
 
-- (void)parseData {
+- (void)parseData:(NSMutableArray<Friend*>*)list {
     [self.friendDisplayList removeAllObjects];
     
     NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
-    NSInteger statusCount = 0;
-    for (Friend *origin in self.friendOriginList) {
-        // friend list
+    for (Friend *origin in list) {
         if (map[origin.fid] == nil) {
             map[origin.fid] = origin;
         } else {
@@ -87,10 +88,6 @@
                 map[origin.fid] = origin;
             }
         }
-        // tab view
-        if (origin.status == 2) {
-            statusCount += 1;
-        }
     }
     for (NSString *key in map) {
         [self.friendDisplayList addObject:map[key]];
@@ -98,8 +95,16 @@
     
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"fid" ascending:YES];
     [self.friendDisplayList sortUsingDescriptors:[NSMutableArray arrayWithObjects:sort, nil]];
-    
+}
+
+- (void)setupTabData {
     [self.tabDataList removeAllObjects];
+    NSInteger statusCount = 0;
+    for (Friend *friend in self.friendDisplayList) {
+        if (friend.status == 2) {
+            statusCount += 1;
+        }
+    }
     NSInteger chatCount = 0;
     if (self.friendDisplayList.count > 0) {
         chatCount = 100;
@@ -109,7 +114,24 @@
 }
 
 - (void)filterList:(NSString *)text {
-    
+    if (text == nil || [text isEqualToString:@""]) {
+        [self parseData:self.friendOriginList];
+    } else {
+        NSMutableArray *filterList = [[NSMutableArray alloc] init];
+        for (Friend *friend in self.friendOriginList) {
+            if ([friend.name containsString:text]) {
+                [filterList addObject:friend];
+            }
+        }
+        [self parseData:filterList];
+    }
+    if (self.delegate) {
+        [self.delegate didLoadData];
+    }
+}
+
+- (BOOL)isEmptyShow {
+    return self.friendOriginList.count <= 0;
 }
 
 #pragma mark - Accesscors

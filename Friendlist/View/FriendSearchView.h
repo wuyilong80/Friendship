@@ -9,7 +9,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol FriendSearchViewDelegate <NSObject>
+
+- (void)friendSearchViewBeginSearch;
+- (void)friendSearchViewShouldSearch:(NSString *)text;
+- (void)friendSearchViewDidEndSearch;
+
+@end
+
 @interface FriendSearchView : UIView
+
+@property (nonatomic, weak) id <FriendSearchViewDelegate> delegate;
 
 @end
 

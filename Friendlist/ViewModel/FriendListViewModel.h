@@ -36,6 +36,7 @@ typedef enum FriendListMode {
 
 - (void)loadData;
 - (void)filterList:(NSString *)text;
+- (BOOL)isEmptyShow;
 
 @end
 

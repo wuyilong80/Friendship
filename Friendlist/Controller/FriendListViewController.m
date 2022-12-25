@@ -13,7 +13,7 @@
 #import "FriendListTableViewCell.h"
 #import "FriendTabView.h"
 
-@interface FriendListViewController () <UITableViewDataSource, FriendViewModelDelegate>
+@interface FriendListViewController () <UITableViewDataSource, FriendViewModelDelegate, FriendSearchViewDelegate>
 
 @property (nonatomic) UIView *memberContainerView;
 @property (nonatomic) UIView *navigationView;
@@ -256,8 +256,8 @@
     [self.memberInfoView updateInfo:self.viewModel.memberInfo];
     [self.tabView updateTab:self.viewModel.tabDataList];
     
-    self.listView.hidden = self.viewModel.friendDisplayList.count <= 0;
-    self.emptyView.hidden = self.viewModel.friendDisplayList.count > 0;
+    self.listView.hidden = self.viewModel.isEmptyShow;
+    self.emptyView.hidden = !self.viewModel.isEmptyShow;
     [self.listTableView reloadData];
 }
 
@@ -266,7 +266,7 @@
 - (void) setupViewModel {
     self.viewModel = [[FriendListViewModel alloc] init];
     self.viewModel.delegate = self;
-    self.viewModel.listMode = FriendApiModeNoFriend;
+    self.viewModel.listMode = FriendApiModeHaveInvite;
     [self.viewModel loadData];
 }
 
@@ -286,6 +286,29 @@
 
 - (void)didLoadData {
     [self updateUI];
+}
+
+#pragma mark - FriendSearchViewDelegate
+
+- (void)friendSearchViewBeginSearch {
+    [self.listView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(@0);
+        make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        make.top.equalTo(self.navigationView.mas_bottom);
+    }];
+}
+
+- (void)friendSearchViewShouldSearch:(NSString *)text {
+    [self.viewModel filterList:text];
+}
+
+- (void)friendSearchViewDidEndSearch {
+    [self.viewModel filterList:@""];
+    [self.listView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(@0);
+        make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        make.top.equalTo(self.memberContainerView.mas_bottom);
+    }];
 }
 
 #pragma mark - Accesscors
@@ -338,6 +361,7 @@
 - (FriendSearchView *)searchView {
     if (!_searchView) {
         _searchView = [[FriendSearchView alloc] init];
+        _searchView.delegate = self;
     }
     return _searchView;
 }
