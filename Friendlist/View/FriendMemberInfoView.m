@@ -7,13 +7,18 @@
 
 #import "FriendMemberInfoView.h"
 #import "UIColor+Extension.h"
+#import "FriendInviteCollectionViewCell.h"
+#import "FriendTabCollectionViewCell.h"
 
-@interface FriendMemberInfoView()
+@interface FriendMemberInfoView() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic) UIImageView *memberAvatarImgView;
 @property (nonatomic) UILabel *memberNameLabel;
 @property (nonatomic) UILabel *memberIdLabel;
 @property (nonatomic) UIView *redPointView;
+@property (nonatomic) UICollectionView *collectionView;
+
+@property (nonatomic) NSMutableArray *inviteList;
 
 @end
 
@@ -30,7 +35,7 @@
 - (void)setupUI {
     [self addSubview:self.memberAvatarImgView];
     [self.memberAvatarImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.trailing.equalTo(self);
+        make.top.trailing.equalTo(self);
         make.width.height.equalTo(@52);
     }];
     self.memberAvatarImgView.layer.cornerRadius = 52 / 2;
@@ -67,14 +72,53 @@
         make.width.height.equalTo(@10);
     }];
     self.redPointView.layer.cornerRadius = 5;
+        
+    [self addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(stackView.mas_bottom).offset(30);
+        make.leading.trailing.bottom.equalTo(@0);
+        make.height.equalTo(@150);
+    }];
 }
 
-- (void)updateInfo:(MemberInfo *)info {
+- (void)updateInfo:(MemberInfo *)info inviteList:(NSMutableArray*)friendList {
     if (info != nil) {
         self.memberNameLabel.text = info.name;
         self.memberIdLabel.text = [NSString stringWithFormat:NSLocalizedString(@"FriendInfoId", nil), info.kokoid];
         self.redPointView.hidden = info.kokoid.length > 0;
     }
+    
+    if (friendList.count <= 0) {
+        [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@0);
+        }];
+    } else if (friendList.count == 1) {
+        [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@75);
+        }];
+    } else {
+        [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@150);
+        }];
+    }
+    self.inviteList = friendList;
+    [self.collectionView reloadData];
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.inviteList.count;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    FriendInviteCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FriendInviteCollectionViewCell reuseIdentifier] forIndexPath:indexPath];
+    [cell updateData:self.inviteList[indexPath.row]];
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.bounds.size.width, 70);
 }
 
 #pragma mark - Accesscors
@@ -109,6 +153,26 @@
         _redPointView.backgroundColor = [UIColor hotPinkColor];
     }
     return _redPointView;
+}
+
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _collectionView.backgroundColor = [UIColor mainBackgroundColor];
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+        [_collectionView registerClass:[FriendInviteCollectionViewCell class] forCellWithReuseIdentifier:[FriendInviteCollectionViewCell reuseIdentifier]];
+    }
+    return _collectionView;
+}
+
+- (NSMutableArray *)inviteList {
+    if (!_inviteList) {
+        _inviteList = [[NSMutableArray alloc] init];
+    }
+    return _inviteList;
 }
 
 @end

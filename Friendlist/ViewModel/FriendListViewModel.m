@@ -66,7 +66,8 @@
         }
         
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-            [weakSelf parseData: self.friendOriginList];
+            [weakSelf parseDisplayData: self.friendOriginList];
+            [weakSelf parseInviteData: self.friendOriginList];
             [weakSelf setupTabData];
             if (weakSelf.delegate) {
                 [weakSelf.delegate didLoadData];
@@ -75,7 +76,7 @@
     });
 }
 
-- (void)parseData:(NSMutableArray<Friend*>*)list {
+- (void)parseDisplayData:(NSMutableArray<Friend*>*)list {
     [self.friendDisplayList removeAllObjects];
     
     NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
@@ -97,6 +98,27 @@
     [self.friendDisplayList sortUsingDescriptors:[NSMutableArray arrayWithObjects:sort, nil]];
 }
 
+- (void)parseInviteData:(NSMutableArray<Friend*>*)list {
+    [self.friendInviteList removeAllObjects];
+    
+    NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
+    for (Friend *origin in list) {
+        if (origin.status == 0) {
+            if (map[origin.fid] == nil) {
+                map[origin.fid] = origin;
+            } else {
+                Friend *lastData = map[origin.fid];
+                if ([origin getUpdateTimestamp] > [lastData getUpdateTimestamp]) {
+                    map[origin.fid] = origin;
+                }
+            }
+        }
+    }
+    for (NSString *key in map) {
+        [self.friendInviteList addObject:map[key]];
+    }
+}
+
 - (void)setupTabData {
     [self.tabDataList removeAllObjects];
     NSInteger statusCount = 0;
@@ -115,7 +137,7 @@
 
 - (void)filterList:(NSString *)text {
     if (text == nil || [text isEqualToString:@""]) {
-        [self parseData:self.friendOriginList];
+        [self parseDisplayData:self.friendOriginList];
     } else {
         NSMutableArray *filterList = [[NSMutableArray alloc] init];
         for (Friend *friend in self.friendOriginList) {
@@ -123,7 +145,7 @@
                 [filterList addObject:friend];
             }
         }
-        [self parseData:filterList];
+        [self parseDisplayData:filterList];
     }
     if (self.delegate) {
         [self.delegate didLoadData];
@@ -155,6 +177,13 @@
         _friendDisplayList = [[NSMutableArray alloc] init];
     }
     return _friendDisplayList;
+}
+
+- (NSMutableArray<Friend *> *)friendInviteList {
+    if (!_friendInviteList) {
+        _friendInviteList = [[NSMutableArray alloc] init];
+    }
+    return _friendInviteList;
 }
 
 - (NSMutableArray<TabViewData *> *)tabDataList {

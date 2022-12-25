@@ -20,28 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor yellowColor];
-//    self.navigationController.
     
-//    self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
-    
-//    self.navigationController.navigationItem.leftBarButtonItem = nil;
-//    self.navigationController.navigationItem.hidesBackButton = YES;
-    
-//    UINavigationBarAppearance *appearence = [[UINavigationBarAppearance alloc] init];
-//    [appearence configureWithTransparentBackground];
-//    appearence.backgroundColor = [UIColor redColor];
-//    self.navigationController.navigationBar.standardAppearance = appearence;
-    
-//    self.navigationItem.hidesBackButton = YES;
-//    self.navigationItem.leftBarButtonItem = nil;
-    
+    [self setupNavigationController];
     [self setupUI];
 }
 
 #pragma mark - UI
 - (void)setupUI {
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     UIButton *button = [[UIButton alloc] init];
     [button setTitle:@"test" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -52,6 +39,13 @@
         make.height.equalTo(@50);
         make.center.equalTo(self.view);
     }];
+}
+
+- (void)setupNavigationController {
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - Action

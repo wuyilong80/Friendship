@@ -13,7 +13,7 @@
 #import "FriendListTableViewCell.h"
 #import "FriendTabView.h"
 
-@interface FriendListViewController () <UITableViewDataSource, FriendViewModelDelegate, FriendSearchViewDelegate>
+@interface FriendListViewController () <UIGestureRecognizerDelegate, UITableViewDataSource, FriendViewModelDelegate, FriendSearchViewDelegate>
 
 @property (nonatomic) UIView *memberContainerView;
 @property (nonatomic) UIView *navigationView;
@@ -70,7 +70,7 @@
     [self.memberInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.equalTo(self.memberContainerView).inset(30);
         make.top.equalTo(self.navigationView.mas_bottom).offset(30);
-        make.bottom.equalTo(self.tabView.mas_top).offset(-30);
+        make.bottom.equalTo(self.tabView.mas_top).offset(-10);
     }];
     
     [self.tabView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -253,7 +253,7 @@
 }
 
 - (void)updateUI {
-    [self.memberInfoView updateInfo:self.viewModel.memberInfo];
+    [self.memberInfoView updateInfo:self.viewModel.memberInfo inviteList:self.viewModel.friendInviteList];
     [self.tabView updateTab:self.viewModel.tabDataList];
     
     self.listView.hidden = self.viewModel.isEmptyShow;
@@ -371,6 +371,7 @@
         _listTableView = [[UITableView alloc] init];
         _listTableView.backgroundColor = [UIColor whiteColor];
         _listTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _listTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _listTableView.dataSource = self;
         [_listTableView registerClass:[FriendListTableViewCell class] forCellReuseIdentifier:[FriendListTableViewCell reuseIdentifier]];
     }

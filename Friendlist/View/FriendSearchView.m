@@ -76,6 +76,8 @@
         _textField.backgroundColor = [UIColor searchViewColor];
         _textField.placeholder = NSLocalizedString(@"FriendSearchPlaceholder", nil);
         _textField.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];
+        _textField.textColor = [UIColor textMainColor];
+        _textField.tintColor = [UIColor textMainColor];
         _textField.layer.cornerRadius = 10;
         _textField.delegate = self;
         [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];

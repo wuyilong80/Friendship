@@ -28,6 +28,8 @@
     return self;
 }
 
+#pragma mark - UI
+
 - (void)setupUI {
     [self.badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.greaterThanOrEqualTo(@18);

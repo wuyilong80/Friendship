@@ -32,6 +32,7 @@ typedef enum FriendListMode {
 @property (nonatomic, weak) id <FriendViewModelDelegate> delegate;
 @property (strong, nonatomic) MemberInfo *memberInfo;
 @property (strong, nonatomic) NSMutableArray <Friend *>*friendDisplayList;
+@property (strong, nonatomic) NSMutableArray <Friend *>*friendInviteList;
 @property (strong, nonatomic) NSMutableArray <TabViewData *>*tabDataList;
 
 - (void)loadData;

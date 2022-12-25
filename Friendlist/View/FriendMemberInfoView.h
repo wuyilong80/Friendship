@@ -9,12 +9,13 @@
 #import <Masonry/Masonry.h>
 
 #import "MemberInfo.h"
+#import "Friend.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FriendMemberInfoView : UIView
 
-- (void)updateInfo:(MemberInfo *)info;
+- (void)updateInfo:(MemberInfo *)info inviteList:(NSMutableArray*)friendList;
 
 @end
 
