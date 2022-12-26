@@ -16,6 +16,14 @@
 
 @implementation FriendListViewModel
 
+- (instancetype)initWithMode:(FriendListMode)mode {
+    self = [super init];
+    if (self) {
+        self.listMode = mode;
+    }
+    return self;
+}
+
 - (void)loadData {
     [self.apiModeList removeAllObjects];
     switch (self.listMode) {
@@ -100,22 +108,23 @@
 
 - (void)parseInviteData:(NSMutableArray<Friend*>*)list {
     [self.friendInviteList removeAllObjects];
-    
-    NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
-    for (Friend *origin in list) {
-        if (origin.status == 0) {
-            if (map[origin.fid] == nil) {
-                map[origin.fid] = origin;
-            } else {
-                Friend *lastData = map[origin.fid];
-                if ([origin getUpdateTimestamp] > [lastData getUpdateTimestamp]) {
+    if (self.listMode == FriendListModeInvite) {
+        NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
+        for (Friend *origin in list) {
+            if (origin.status == 0) {
+                if (map[origin.fid] == nil) {
                     map[origin.fid] = origin;
+                } else {
+                    Friend *lastData = map[origin.fid];
+                    if ([origin getUpdateTimestamp] > [lastData getUpdateTimestamp]) {
+                        map[origin.fid] = origin;
+                    }
                 }
             }
         }
-    }
-    for (NSString *key in map) {
-        [self.friendInviteList addObject:map[key]];
+        for (NSString *key in map) {
+            [self.friendInviteList addObject:map[key]];
+        }
     }
 }
 

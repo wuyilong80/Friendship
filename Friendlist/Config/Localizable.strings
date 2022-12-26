@@ -1,3 +1,7 @@
+"LaunchButtonNoFriend" = "無好友";
+"LaunchButtonFriend" = "有好友";
+"LaunchButtonInvite" = "好友含邀請";
+
 "FriendEmptyTitle" = "就從加好友開始吧：）";
 "FriendEmptyDescription" = "與好友們一起用 KOKO 聊起來！\n還能互相收付款、發紅包喔：）";
 "FriendEmptyButton" = "加好友";

@@ -7,7 +7,7 @@
 
 #import "AppDelegate.h"
 
-#import "SettingViewController.h"
+#import "LaunchViewController.h"
 #import "FriendListViewController.h"
 
 @interface AppDelegate ()
@@ -29,10 +29,8 @@
         self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     }
     
-//    FriendListViewController *vc = [[FriendListViewController alloc] init];
-        SettingViewController *vc = [[SettingViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    self.window.rootViewController = nav;
+    LaunchViewController *vc = [[LaunchViewController alloc] init];
+    self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
 }
 
