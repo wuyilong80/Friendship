@@ -23,10 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FriendListViewModel : NSObject
 
 typedef enum FriendListMode {
-    FriendApiModeNoFriend = 0,
-    FriendApiModeNoInvite,
-    FriendApiModeHaveInvite,
+    FriendListModeNoFriend = 0,
+    FriendListModeFriend,
+    FriendListModeInvite,
 } FriendListMode;
+
+- (instancetype)initWithMode:(FriendListMode)mode;
 
 @property (nonatomic) FriendListMode listMode;
 @property (nonatomic, weak) id <FriendViewModelDelegate> delegate;

@@ -1,5 +1,5 @@
 //
-//  SettingViewController.h
+//  LaunchViewController.h
 //  Friendlist
 //
 //  Created by Lawrence on 2022/12/23.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SettingViewController : UIViewController
+@interface LaunchViewController : UIViewController
 
 @end
 

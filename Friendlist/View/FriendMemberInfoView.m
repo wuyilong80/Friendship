@@ -72,7 +72,8 @@
         make.width.height.equalTo(@10);
     }];
     self.redPointView.layer.cornerRadius = 5;
-        
+       
+    
     [self addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(stackView.mas_bottom).offset(30);
@@ -89,7 +90,7 @@
     }
     
     if (friendList.count <= 0) {
-        [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@0);
         }];
     } else if (friendList.count == 1) {

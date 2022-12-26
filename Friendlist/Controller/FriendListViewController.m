@@ -24,6 +24,7 @@
 @property (nonatomic) UIView *listView;
 @property (nonatomic) FriendSearchView *searchView;
 @property (nonatomic) UITableView *listTableView;
+@property (nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -34,17 +35,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupNavigation];
     [self setupUI];
     [self setupViewModel];
 }
 
 #pragma mark - Layout
-
-- (void)setupNavigation {
-    self.navigationItem.hidesBackButton = YES;
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
-}
 
 - (void)setupUI {
     self.view.backgroundColor = [UIColor whiteColor];
@@ -104,6 +99,9 @@
         make.top.bottom.inset(5);
         make.width.equalTo(atmImgView.mas_height);
     }];
+    atmImgView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(atmImageTapped)];
+    [atmImgView addGestureRecognizer:tap];
     
     UIImageView *transferImgView = [[UIImageView alloc] init];
     [self.navigationView addSubview:transferImgView];
@@ -228,6 +226,8 @@
     
     [stackView addArrangedSubview:bottomLabel];
     [stackView addArrangedSubview:bottomButton];
+    
+    self.emptyView.hidden = YES;
 }
 
 - (void)setupListView {
@@ -250,6 +250,8 @@
         make.leading.trailing.equalTo(self.listView).inset(20);
         make.bottom.equalTo(@0);
     }];
+    
+    self.listView.hidden = YES;
 }
 
 - (void)updateUI {
@@ -261,12 +263,21 @@
     [self.listTableView reloadData];
 }
 
-#pragma mark - Data
+#pragma mark - ViewModel
 
 - (void) setupViewModel {
-    self.viewModel = [[FriendListViewModel alloc] init];
     self.viewModel.delegate = self;
-    self.viewModel.listMode = FriendApiModeHaveInvite;
+    [self.viewModel loadData];
+}
+
+#pragma mark - Action
+
+- (void)atmImageTapped {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)refreshControlValueChanged {
+    [self.refreshControl beginRefreshing];
     [self.viewModel loadData];
 }
 
@@ -285,16 +296,22 @@
 #pragma mark - FriendViewModelDelegate
 
 - (void)didLoadData {
+    if (self.refreshControl.isRefreshing) {
+        [self.refreshControl endRefreshing];
+    }
     [self updateUI];
 }
 
 #pragma mark - FriendSearchViewDelegate
 
 - (void)friendSearchViewBeginSearch {
-    [self.listView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(@0);
-        make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
-        make.top.equalTo(self.navigationView.mas_bottom);
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.listView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.leading.trailing.equalTo(@0);
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+            make.top.equalTo(self.navigationView.mas_bottom);
+        }];
+        [self.view layoutIfNeeded];
     }];
 }
 
@@ -304,10 +321,13 @@
 
 - (void)friendSearchViewDidEndSearch {
     [self.viewModel filterList:@""];
-    [self.listView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(@0);
-        make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
-        make.top.equalTo(self.memberContainerView.mas_bottom);
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.listView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.leading.trailing.equalTo(@0);
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+            make.top.equalTo(self.memberContainerView.mas_bottom);
+        }];
+        [self.view layoutIfNeeded];
     }];
 }
 
@@ -374,8 +394,17 @@
         _listTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _listTableView.dataSource = self;
         [_listTableView registerClass:[FriendListTableViewCell class] forCellReuseIdentifier:[FriendListTableViewCell reuseIdentifier]];
+        [_listTableView setRefreshControl:self.refreshControl];
     }
     return _listTableView;
+}
+
+- (UIRefreshControl *)refreshControl {
+    if (!_refreshControl) {
+        _refreshControl = [[UIRefreshControl alloc] init];
+        [_refreshControl addTarget:self action:@selector(refreshControlValueChanged) forControlEvents:UIControlEventValueChanged];
+    }
+    return _refreshControl;
 }
 
 @end
